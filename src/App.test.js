@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders top menu butttons', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  //const Element = screen.getByText(/products/i, { selector: 'a' });
+  const Elements = screen.getAllByRole('button');
+  //expect(Element).toBeInTheDocument();
+  expect(Elements.length).toBeGreaterThan(0);
 });

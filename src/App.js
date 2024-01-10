@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState, useContext, createContext } from "react";
+
+import { StrictMode } from "react";
+import { RouterProvider } from "react-router-dom";
+
+import Theme from "../src/components/Theme";
+import Navigation from "../src/components/Navigation";
+import { ThemeProvider } from "@mui/material/styles";
+
+export const myResumeContext = createContext(null);
 
 function App() {
+  const router = Navigation();
+  const myTheme = Theme();
+  const [theme, setTheme] = useState(myTheme); // the default theme
+
+  //console.log("In App: Theme: " + JSON.stringify(myTheme));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StrictMode>
+      <myResumeContext.Provider value={{ theme: theme, setTheme: setTheme }}  >
+        <ThemeProvider theme={theme}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </myResumeContext.Provider>
+    </StrictMode>
   );
 }
 
