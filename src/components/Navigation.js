@@ -7,13 +7,14 @@ import Blog from "../pages/Blog";
 import { tokenLoader } from '../util/auth';
 import HomePage from '../pages/Home';
 import PreferencesPage from '../pages/Preferences';
+import ErrorPage from '../pages/Error';
 
 export default function Navigation() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <RootLayout />,
-      // errorElement: <ErrorPage />,
+      errorElement: <ErrorPage />,
       id: 'root',
       loader: tokenLoader,
       children: [

@@ -56,6 +56,12 @@ export default function AboutApp() {
               <li>Fully configuration controlled</li>
               <li>Docker container deployment</li>
               <li>Native (Mobile) App</li>
+              <li>Better resume pdf display</li>
+              <li>Add a blog and a way to get the blog entries when offline via API </li>
+              <li>blog entries: how I fixed pytests for use with WSL</li>
+              <li>blog entries: random numbers, etc.</li>
+              <li>blog entries: React Native app for random numbers</li>
+              <li>long list of other enhancements: testing, CICD support, etc.</li>
             </Box>
           </Item>
         </Grid>
@@ -75,7 +81,7 @@ export default function AboutApp() {
         </Grid>
         <Grid container columnSpacing={1} sx={{ order: { xs: 1, sm: 2 } }}>
           <Grid>
-            <Item>GitHub link</Item>
+            <Item><a href="https://github.com/adamx97/myresume/tree/master" target="_blank" rel="noreferrer">GitHub link</a></Item>
           </Grid>
           <Grid>
             <Item>Link B</Item>

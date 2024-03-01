@@ -7,8 +7,6 @@ import Paper from "@mui/material/Paper";
 import AppBar from "@mui/material/AppBar";
 import { SnackbarProvider, enqueueSnackbar } from "notistack";
 import { resumeThemes } from "../components/Theme";
-import PaletteSetter from "../components/PaletteSetter";
-import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
@@ -19,7 +17,6 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { stringAvatar } from "./ResponsiveAppBar.js";
-import Checkbox from "@mui/material/Checkbox";
 import { myResumeContext } from "../App.js";
 
 function ThemeSample({ resumeTheme }) {
@@ -38,7 +35,7 @@ function ThemeSample({ resumeTheme }) {
   return (
     <ThemeItem key={themeName}>
       <ThemeProvider theme={oTheme}>
-        <SampleAppBar JobSeeker={"Qres Ephraim"} />
+        <ColorSwatchAppBar JobSeeker={"Qres Ephraim"} />
         <Grid xs={12} container spacing={1}>
           <Grid item xs={12} mt={2} align={"center"}>
             <Typography variant="body1" textAlign={"center"}>
@@ -103,8 +100,7 @@ export function IntegrationNotistack({ children }) {
   );
 }
 
-function SampleAppBar({ JobSeeker, children, ...props }) {
-  const settings = ["Profile", "Logout", "Preferences", "About This App"];
+function ColorSwatchAppBar({ JobSeeker, children, ...props }) {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -161,11 +157,11 @@ function SampleAppBar({ JobSeeker, children, ...props }) {
             }}
             open={false}
           >
-            {settings.map((setting) => (
+            {/* {settings.map((setting) => (
               <MenuItem key={setting}>
                 <Typography textAlign="center">{setting}</Typography>
               </MenuItem>
-            ))}
+            ))} */}
           </Menu>
         </Box>
       </Toolbar>

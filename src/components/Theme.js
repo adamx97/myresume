@@ -1,5 +1,15 @@
 import { createTheme } from "@mui/material/styles";
-import { lime, purple, green, blue, red, pink, blueGrey, orange, deepPurple, grey } from "@mui/material/colors";
+import {
+  lime,
+  purple,
+  green,
+  blue,
+  red,
+  pink,
+  blueGrey,
+  orange,
+  deepPurple,
+} from "@mui/material/colors";
 
 export const resumeThemes = [
   {
@@ -7,7 +17,7 @@ export const resumeThemes = [
     baseTheme: {
       palette: {
         primary: lime, // { main: lime[500] },
-        secondary: blueGrey//  { main: purple[500] },
+        secondary: blueGrey, //  { main: purple[500] },
       },
     },
   },
@@ -25,8 +35,8 @@ export const resumeThemes = [
     name: "Deep Purple",
     baseTheme: {
       palette: {
-        primary:  {  main: deepPurple[500],  },
-        secondary: { main: '#bdbdbd', contrastText: "#222" },
+        primary: { main: deepPurple[500] },
+        secondary: { main: "#bdbdbd", contrastText: "#222" },
       },
     },
   },
@@ -35,7 +45,7 @@ export const resumeThemes = [
     baseTheme: {
       palette: {
         primary: purple, // { main: purple[500] },
-        secondary: pink//  { main: blue[500] },
+        secondary: pink, //  { main: blue[500] },
       },
     },
   },
@@ -49,8 +59,20 @@ export const resumeThemes = [
       },
     },
   },
-  { name: "Red", baseTheme: { palette: { primary: red , secondary: blue}} },
-  { name: "Blue", baseTheme: { palette: { primary: blue , secondary: orange}} },
+  { name: "Red", baseTheme: { palette: { primary: red, secondary: blue } } },
+  {
+    name: "Blue",
+    baseTheme: { palette: { primary: blue, secondary: orange } },
+  },
+  {
+    name: "Navy",
+    baseTheme: {
+      palette: {
+        primary: { main: "#1a237e" },
+        secondary: { main: "#c5cae9", contrastText: "#222" },
+      },
+    },
+  },
 ];
 
 function Theme() {

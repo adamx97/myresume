@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useRef, Fragment } from "react";
 import { Outlet, useLoaderData, useSubmit } from "react-router-dom";
-import ResponsiveAppBar from "../components/ResponsiveAppBarzzzz";
+import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import { getTokenDuration } from "../util/auth";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -12,35 +12,20 @@ function RootLayout() {
   //console.log("In RootLayout: Theme from useContext: " + JSON.stringify(theme));
   const token = useLoaderData();
   const submit = useSubmit();
+  const rootContainerRef = useRef(null);
   // const navigation = useNavigation();
-  useEffect(() => {
-    if (!token) {
-      return;
-    }
 
-    if (token === "EXPIRED") {
-      submit(null, { action: "/logout", method: "post" });
-      return;
-    }
-
-    const tokenDuration = getTokenDuration();
-    console.log(tokenDuration);
-
-    setTimeout(() => {
-      submit(null, { action: "/logout", method: "post" });
-    }, tokenDuration);
-  }, [token, submit]);
 
   return (
-    <>
+    <Fragment >
       <ResponsiveAppBar MuiAppBar={{ color: "primary" }}></ResponsiveAppBar>
-      <Container component="main" >
-        <Box sx={{ m: 2, mb: 2 }} >
+      <Container  ref={rootContainerRef}  >
+        <Box sx={{ m: 2 }} >
         {/* {navigation.state === 'loading' && <p>Loading...</p>} */}
         <Outlet />
         </Box>
       </Container>
-    </>
+    </Fragment>
   );
 }
 

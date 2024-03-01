@@ -1,17 +1,19 @@
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
-import { grey } from "@mui/material/colors";
 import { useState } from "react";
-import { styled } from "@mui/material/styles";
 import Slide from "@mui/material/Slide";
-import { useSnackbar } from 'notistack';
+import { useSnackbar } from "notistack";
 
-
-export default function PaletteSetter({ customTheme, ThemeName,  children, props }) {
+export default function PaletteSetter({
+  customTheme,
+  ThemeName,
+  children,
+  props,
+}) {
   const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = useState(false);
   const [exited, setExited] = useState(true);
-  
+
   const handleClose = (_, reason) => {
     if (reason === "clickaway") {
       return;
@@ -38,17 +40,20 @@ export default function PaletteSetter({ customTheme, ThemeName,  children, props
   }
 
   return (
-    <>   
-      <Button 
+    <>
+      <Button
         theme={customTheme}
-        color='primary'
-        
+        color="primary"
         // style={{ backgroundColor: customTheme.palette.primary[500], color: customTheme.palette.primary.contrastText, }}
         onClick={() => handleClick(ThemeName)}
-        sx={{ textTransform: "none", m: 1, backgroundColor: `$customTheme.palette.primary[500]}`  }} 
-        
+        sx={{
+          textTransform: "none",
+          m: 1,
+          backgroundColor: `$customTheme.palette.primary[500]}`,
+        }}
       >
-        customTheme.palette.primary= {JSON.stringify(customTheme.palette.primary)} <br /> 
+        customTheme.palette.primary={" "}
+        {JSON.stringify(customTheme.palette.primary)} <br />
         ThemeName: {ThemeName}
         {children}
       </Button>
@@ -59,7 +64,7 @@ export default function PaletteSetter({ customTheme, ThemeName,  children, props
         onClose={handleClose}
         onClick={handleClose}
         autoHideDuration={6000}
-        message= {`Palette changed to ${ThemeName}`}
+        message={`Palette changed to ${ThemeName}`}
         // action={action}
         exited={exited}
         TransitionComponent={TransitionLeft}
@@ -67,4 +72,3 @@ export default function PaletteSetter({ customTheme, ThemeName,  children, props
     </>
   );
 }
-
