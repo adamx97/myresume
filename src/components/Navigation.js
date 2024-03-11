@@ -1,10 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../pages/Root";
-import About from "../pages/About";
 import AboutThisAppPage from "../pages/AboutThisApp";
 import Resume from "../pages/Resume";
 import Blog from "../pages/Blog";
-import { tokenLoader } from '../util/auth';
 import HomePage from '../pages/Home';
 import PreferencesPage from '../pages/Preferences';
 import ErrorPage from '../pages/Error';
@@ -16,14 +14,9 @@ export default function Navigation() {
       element: <RootLayout />,
       errorElement: <ErrorPage />,
       id: 'root',
-      loader: tokenLoader,
       children: [
         { 
           index: true, element: <HomePage /> },
-        {
-          path: "about",
-          element: <About />,
-        },
         {
           path: "resume",
           element: <Resume />,

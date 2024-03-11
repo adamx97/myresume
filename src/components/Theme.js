@@ -75,9 +75,9 @@ export const resumeThemes = [
   },
 ];
 
-function Theme() {
-  const theme = createTheme(resumeThemes[2].baseTheme);
-
-  return theme;
+function Theme(themeName) {
+  const foundTheme = resumeThemes.find(theme => theme.name === themeName);
+  console.log("Sought: " + themeName + " Creating theme: " + foundTheme.name);
+  return createTheme(foundTheme.baseTheme);
 }
 export default Theme;

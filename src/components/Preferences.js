@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
-import { ThemeProvider, createTheme, useTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import AppBar from "@mui/material/AppBar";
@@ -15,27 +15,30 @@ import Menu from "@mui/material/Menu";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 import { stringAvatar } from "./ResponsiveAppBar.js";
-import { myResumeContext } from "../App.js";
+import { JobSeekerContext} from "../App.js";
+
 
 function ThemeSample({ resumeTheme }) {
-  //useContext(ThemeContext);
-  const { theme, setTheme } = useContext(myResumeContext);
-  console.log(JSON.stringify(resumeTheme.name));
+  console.log("ThemeSample "+ resumeTheme.name);
+  const {jobSeeker, setOTheme} = useContext(JobSeekerContext);
   const oTheme = createTheme(resumeTheme.baseTheme);
   const themeName = resumeTheme.name;
+
   const handleThemeSelection = () => {
     const newTheme = resumeThemes.filter(resumeTheme => resumeTheme.name === themeName)[0];
-    console.log("new Theme Selected: " + newTheme.name); //const newTheme = createTheme(resumeTheme.baseTheme);
+    console.log("new Theme Selected: " + newTheme.name); 
     let oTheme = createTheme(newTheme.baseTheme);
-    setTheme(oTheme);
-    enqueueSnackbar(themeName + " theme set.");
+    setOTheme(oTheme);
+    localStorage.setItem("PreferredTheme", newTheme.name);
+    enqueueSnackbar(newTheme.name + " theme set.");
+    return true;
   };
+  
   return (
     <ThemeItem key={themeName}>
       <ThemeProvider theme={oTheme}>
-        <ColorSwatchAppBar JobSeeker={"Qres Ephraim"} />
+        <ColorSwatchAppBar JobSeeker={jobSeeker.name} />
         <Grid xs={12} container spacing={1}>
           <Grid item xs={12} mt={2} align={"center"}>
             <Typography variant="body1" textAlign={"center"}>
@@ -80,8 +83,8 @@ export default function Preferences() {
             </Grid>
             {resumeThemes.map((theTheme) => {
               return (
-                <Grid item xs={6}>
-                  <ThemeSample resumeTheme={theTheme} />
+                <Grid item xs={6} key={theTheme.name}>
+                  <ThemeSample resumeTheme={theTheme} key={theTheme.name}/>
                 </Grid>
               );
             })}
@@ -100,7 +103,7 @@ export function IntegrationNotistack({ children }) {
   );
 }
 
-function ColorSwatchAppBar({ JobSeeker, children, ...props }) {
+function ColorSwatchAppBar({ JobSeeker: JobSeekerName, children, ...props }) {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -123,7 +126,7 @@ function ColorSwatchAppBar({ JobSeeker, children, ...props }) {
             textDecoration: "none",
           }}
         >
-          {JobSeeker.toUpperCase()}
+          {JobSeekerName.toUpperCase()}
         </Typography>
 
         <Button color="inherit">Resume</Button>
@@ -132,7 +135,7 @@ function ColorSwatchAppBar({ JobSeeker, children, ...props }) {
           <Tooltip title={"Open settings"}>
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, ml: 0 }}>
               <Avatar
-                {...stringAvatar("Qres Milan Ephraim")}
+                {...stringAvatar(JobSeekerName)}
                 sx={{
                   typography: "body1",
                   bgcolor: "secondary.main",
@@ -157,11 +160,6 @@ function ColorSwatchAppBar({ JobSeeker, children, ...props }) {
             }}
             open={false}
           >
-            {/* {settings.map((setting) => (
-              <MenuItem key={setting}>
-                <Typography textAlign="center">{setting}</Typography>
-              </MenuItem>
-            ))} */}
           </Menu>
         </Box>
       </Toolbar>
