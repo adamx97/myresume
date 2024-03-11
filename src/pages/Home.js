@@ -33,8 +33,8 @@ function HomePage() {
   const { jobSeeker } = useContext(JobSeekerContext);
   return (
     <PageContent>
-      <Grid container id="GridContainer">
-        <Grid item xs={12} sx={{ mt: 1 }}>
+      <Grid container id="GridContainer" spacing={2}>
+        <Grid item xs={12} >
           {/* a spacer below the top header */}
             </Grid>
         <Grid item xs={12}>
@@ -61,7 +61,7 @@ function HomePage() {
             ) : null}
           </Item>
         </Grid>
-        <Grid item sx= {{ mt: 1 }}>
+        <Grid item >
           <Item sx= {{ px: 3 }}>
             <ul>
               {jobSeeker.email && (

@@ -68,7 +68,7 @@ export default function Preferences() {
     <>
       <SnackbarProvider maxSnack={resumeThemes.length}>
         <ThemeItem>
-          <Grid container xs={12} spacing={2} mt={2}>
+          <Grid container xs={12} spacing={1} mt={1}>
             <Grid item xs={12}>
               <Typography
                 variant="subtitle1"

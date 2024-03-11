@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { JobSeekerContext } from "../App";
 
-const pages = ["Resume", "Blog"];
+const pages = ["Resume", "Blog", "Preferences", "About This App"];
 const settings = ["Preferences", "About This App"];
 
 export function stringAvatar(name, secondary ="secondary.main", contrastText="text.secondary") {
