@@ -6,8 +6,8 @@ import Link from "@mui/material/Link";
 
 export default function ResumePage() {
   const { jobSeeker } = useContext(JobSeekerContext);
-  const urlDownload  = jobSeeker.ResumeDownloadPDFLink;
-  const ResumeDisplayLink = jobSeeker.ResumeDisplayLink;
+  const urlDownload  = jobSeeker.resumeDownloadPDFLink;
+  const ResumeDisplayLink = jobSeeker.resumeDisplayLink;
   return (
     <Container id="resumeContainer" sx={{ bgcolor: "#ffffff" }}>
       <Box sx={{ bgcolor: "#ffffff", height: "85vh", width: "100%" }}>
