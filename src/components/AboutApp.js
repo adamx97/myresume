@@ -35,7 +35,7 @@ export default function AboutApp() {
               Implemented Features
             </Box>
             <li>
-              A React portfolio app meant to demonstating some simple features
+              A React portfolio app meant to demonstrate some simple features
               and interactivity
             </li>
             <li>React Router -- SPA plus routing</li>
