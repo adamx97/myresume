@@ -35,23 +35,24 @@ export default function AboutApp() {
               Implemented Features
             </Box>
             <li>
+              A React portfolio app meant to demonstating some simple features
+              and interactivity
+            </li>
+            <li>React Router -- SPA plus routing</li>
+            <li>Automatic Vercel deployment triggered GitHub check-in</li>
+            <li>
+              Material UI -- AppBar, grid, typography, dynamic themes, etc.{" "}
+            </li>
+            <li>notistack -- 3rd party imperative snackbar component</li>
+            <li>
+              Default resume theme, user overridable via Preferences page.
+            </li>
+            <li>
               Fully configuration controlled, multiple job seekers supported and
               new ones easily added.
             </li>
             <li>Live resume display and PDF download.</li>
-            <li>
-              Default resume theme, user overridable via Preferences page.
-            </li>
             <li>Links to: LinkedIn, blog, and GitHub</li>
-
-            <li>React Router -- SPA plus routing</li>
-            <li>
-              Material UI -- AppBar, grid, typography, dynamic themes, etc.{" "}
-            </li>
-            <li>Automatic Vercel deployment triggered GitHub check-in</li>            
-            <li>
-              notistack -- 3rd party imperative snackbar component
-            </li>
           </Item>
         </Grid>
         <Grid item xs={12}>
@@ -66,32 +67,31 @@ export default function AboutApp() {
 
             <li>Docker container deployment</li>
             <li>Native (Mobile) App</li>
-            <li>
-              Add a blog and a way to get the blog entries when offline via API{" "}
-            </li>
+            <li>Free custom wallpaper feature</li>
             <li>Blog entries: how I fixed pytests for use with WSL</li>
             <li>Blog entries: React Native app for random numbers</li>
             <li>Future enhancements: CICD support, etc.</li>
           </Item>
         </Grid>
         <Grid item xs={12}>
-        <Item>
-          <Grid container spacing={1} sx={{ flexGrow: 5 }}>
-            {/* <Grid xs>© Copyright {new Date().getFullYear()}</Grid> */}
-            <Box xs={{display:'flex'}} xs>© Copyright {new Date().getFullYear()}</Box>
-            <Grid xs >
+          <Item>
+            <Grid container spacing={1} sx={{ flexGrow: 5 }}>
+              {/* <Grid xs>© Copyright {new Date().getFullYear()}</Grid> */}
+              <Box xs={{ display: "flex" }}>
+                © Copyright {new Date().getFullYear()}
+              </Box>
+              <Grid xs></Grid>
+              <Box xs={{ display: "flex" }}>
+                <a
+                  href="https://github.com/adamx97/myresume/tree/master"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Source Code for this Site
+                </a>
+              </Box>
             </Grid>
-            <Box xs={{display:'flex'}} >
-            <a
-                href="https://github.com/adamx97/myresume/tree/master"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Source Code for this Site
-              </a>
-            </Box>
-          </Grid>
-        </Item>
+          </Item>
         </Grid>
       </Grid>
     </>
